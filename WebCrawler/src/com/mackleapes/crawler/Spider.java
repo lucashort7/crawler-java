@@ -34,4 +34,18 @@ public class Spider {
     private Set<String> pagesVisited = new HashSet<String>();
     private List<String> pagesToVisit = new LinkedList<String>();
     
+    
+    //visiting different pages
+    private String nextUrl()
+    {
+        String nextUrl;
+        
+        do{
+            nextUrl = this.pagesToVisit.remove(0);
+        } while(this.pagesVisited.contains(nextUrl));
+        
+        this.pagesVisited.add(nextUrl);
+        return nextUrl;
+    }
+    
 }
